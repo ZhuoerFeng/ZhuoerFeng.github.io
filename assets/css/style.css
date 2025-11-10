@@ -83,3 +83,55 @@ p {
 .contact-info a:hover {
     text-decoration: underline;
 }
+
+/* Publication Section Styling */
+.publications {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+    margin-top: 1rem;
+}
+
+.pub-item {
+    background: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    box-shadow: 0px 2px 5px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.pub-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.08);
+}
+
+.pub-title {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #222;
+    margin-bottom: 0.3rem;
+}
+
+.pub-authors {
+    font-size: 0.9rem;
+    color: #555;
+    margin-bottom: 0.4rem;
+    font-style: italic;
+}
+
+.pub-link {
+    display: inline-block;
+    font-size: 0.85rem;
+    color: #0066cc;
+    text-decoration: none;
+    background: #f0f8ff;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    transition: background 0.2s ease, color 0.2s ease;
+}
+
+.pub-link:hover {
+    background: #0066cc;
+    color: #fff;
+}
