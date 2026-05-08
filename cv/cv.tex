@@ -1,0 +1,222 @@
+\documentclass[11pt, a4paper]{article}
+
+% ===== Packages =====
+\usepackage[margin=0.7in, top=0.6in, bottom=0.6in]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{fancyhdr}
+\usepackage{graphicx}
+
+% ===== Colors =====
+\definecolor{primary}{HTML}{1a1a2e}
+\definecolor{accent}{HTML}{2a7a7a}
+\definecolor{darkgray}{HTML}{444444}
+\definecolor{lightgray}{HTML}{777777}
+
+% ===== Hyperref Setup =====
+\hypersetup{
+    colorlinks=true,
+    linkcolor=accent,
+    urlcolor=accent,
+    pdfauthor={Zhuoer Feng},
+    pdftitle={CV - Zhuoer Feng},
+}
+
+% ===== Section Formatting =====
+\titleformat{\section}
+    {\large\bfseries\color{primary}}
+    {}
+    {0em}
+    {\MakeUppercase}
+    [\vspace{-0.6em}{\color{accent}\rule{\linewidth}{1.2pt}}]
+
+\titlespacing{\section}{0pt}{14pt}{6pt}
+
+% ===== No Page Numbers (use footer) =====
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyfoot[C]{\small\color{lightgray} Zhuoer Feng $\cdot$ Curriculum Vitae $\cdot$ \thepage}
+
+% ===== Custom Commands =====
+\newcommand{\cventry}[4]{%
+    \noindent\textbf{#1} \hfill \textcolor{lightgray}{\small #2} \\
+    \textit{\textcolor{darkgray}{#3}} \hfill \textcolor{lightgray}{\small #4} \\[-0.3em]
+}
+
+\newcommand{\cventryoneline}[2]{%
+    \noindent\textbf{#1} \hfill \textcolor{lightgray}{\small #2} \\[-0.3em]
+}
+
+\newcommand{\pubentry}[4]{%
+    \item \textbf{#1}%
+    \ifthenelse{\equal{#2}{}}{}{ \textcolor{accent}{[#2]}}. \\
+    {\small #3.}%
+    \ifthenelse{\equal{#4}{}}{}{ {\small \href{#4}{[Paper]}}}
+}
+
+\usepackage{ifthen}
+
+% ===== Begin Document =====
+\begin{document}
+
+% ===== Header =====
+\noindent
+\begin{minipage}[c]{\dimexpr\textwidth-3.2cm\relax}
+    \begin{center}
+        {\LARGE\bfseries\color{primary} Zhuoer (Andrew) Feng} \\[0.4em]
+        {\normalsize\color{darkgray} PhD Candidate $\cdot$ Department of Computer Science and Technology $\cdot$ Tsinghua University} \\[0.5em]
+        {\small
+            \faEnvelope\ \href{mailto:AndrewFengTHU@gmail.com}{AndrewFengTHU@gmail.com} \quad
+            \faGithub\ \href{https://github.com/ZhuoerFeng}{ZhuoerFeng} \quad
+            \faGlobe\ \href{https://zhuoerfeng.github.io}{zhuoerfeng.github.io}
+        } \\[0.2em]
+        {\small
+            \faGraduationCap\ \href{https://scholar.google.com/citations?user=g85fPV4AAAAJ&hl=en}{Google Scholar} \quad
+            \faLinkedin\ \href{https://www.linkedin.com/in/zhuoer-feng-ab4a3b158}{LinkedIn} \quad
+            \faTwitter\ \href{https://x.com/andrewfeng_thu}{@andrewfeng\_thu}
+        }
+    \end{center}
+\end{minipage}%
+\hfill
+\begin{minipage}[c]{2.8cm}
+    \raggedleft
+    \includegraphics[width=2.6cm]{profile_cv.png}
+\end{minipage}
+
+\vspace{-0.8em}
+
+% ===== Research Interests =====
+\section{Research Interests}
+
+LLM Evaluation, Reinforcement Learning for LLM, LLM-as-Judge, Long-form Text Generation and Critique, Foundation Model Development.
+
+% ===== Education =====
+\section{Education}
+
+\cventry{Ph.D. Candidate, Computer Science and Technology}{2022 -- Present}{Tsinghua University, Beijing, China}{}
+\hspace{1em}{\small Advised by \href{https://coai.cs.tsinghua.edu.cn/hml}{Prof.\ Minlie Huang} and co-advised by \href{https://coai.cs.tsinghua.edu.cn/hw-ai/}{Prof.\ Hongning Wang}, CoAI Group.}
+\vspace{0.6em}
+
+\cventry{Undergraduate Visiting Researcher (UGVR)}{Jun 2021 -- Aug 2021}{Stanford University, Stanford, CA, USA}{}
+\hspace{1em}{\small Robotics. Advised by Prof.\ Silvio Savarese and Prof.\ Kuan Fang.}
+\vspace{0.6em}
+
+\cventry{B.Eng., Computer Science and Technology}{2018 -- 2022}{Tsinghua University, Beijing, China}{}
+\hspace{1em}{\small Transferred from Department of Chemical Engineering (2017--2018).}
+\vspace{0.6em}
+
+\cventry{B.Econ., Economics}{2018 -- 2022}{Tsinghua University, School of Economics \& Management}{}
+
+\vspace{-0.4em}
+
+% ===== Experience =====
+\section{Professional Experience}
+
+\cventry{Full-time Research Intern, Evaluation Team}{Aug 2023 -- Present}{Z.ai (Zhipu AI), Beijing, China}{}
+\begin{itemize}[leftmargin=1.5em, topsep=2pt, itemsep=1pt, parsep=0pt]
+    \item Post-training stage development: reward model design, pretrain/post-train checkpoint assessment.
+    \item Evaluation domains: Instruction Following, Multi-turn Dialogue, Creative Writing, and Agent (Claude Code, OpenClaw) performance.
+    \item Core contributor to GLM-3, GLM-4.5, and GLM-5 model evaluation pipelines.
+\end{itemize}
+
+% ===== Publications =====
+\section{Publications}
+
+\begin{enumerate}[leftmargin=1.5em, topsep=2pt, itemsep=6pt, parsep=0pt, label={[\arabic*]}]
+
+    \item \textbf{GLM-5: from Vibe Coding to Agentic Engineering} \textcolor{accent}{[Tech Report, 2026]} \\
+    {\small GLM-Team.} \\
+    {\small \href{https://arxiv.org/abs/2602.15763}{arXiv:2602.15763}}
+
+    \item \textbf{RAVEL: Reasoning Agents for Validating and Evaluating LLM Text Synthesis} \textcolor{accent}{[NeurIPS 2026, Submitted]} \\
+    {\small \underline{Zhuoer Feng}, Cunxiang Wang, Yu Luo, Bosi Wen, Yidong Wang, Lin Fan, Yilin Zhou, Zikang Wang, Wenbo Yu, Lindong Wu, Hongning Wang, Minlie Huang.} \\
+    {\small \href{https://arxiv.org/abs/2603.00686}{arXiv:2603.00686}}
+
+    \item \textbf{RLAR: An Agentic Reward System for Multi-task Reinforcement Learning on Large Language Models} \textcolor{accent}{[NeurIPS 2026, Submitted]} \\
+    {\small \underline{Zhuoer Feng}, Cunxiang Wang, Bosi Wen, Yidong Wang, Yu Luo, Hongning Wang, Minlie Huang.} \\
+    {\small \href{https://arxiv.org/abs/2603.00724}{arXiv:2603.00724}}
+
+    \item \textbf{HoWToBench: Holistic Evaluation for LLM's Capability in Human-level Writing using Tree of Writing} \textcolor{accent}{[ACL 2026]} \\
+    {\small \underline{Zhuoer Feng}*, Cunxiang Wang*, Yu Luo, Lin Fan, Yilin Zhou, Zikang Wang, Xiaotao Gu, Jie Tang, Hongning Wang, Minlie Huang.} \\
+    {\small \href{https://arxiv.org/abs/2604.19071}{arXiv:2604.19071}}
+
+    \item \textbf{GLM-4.5: Agentic, Reasoning, and Coding (ARC) Foundation Models} \textcolor{accent}{[Tech Report, 2025]} \\
+    {\small GLM-4.5 Team.} \\
+    {\small \href{https://arxiv.org/abs/2508.06471}{arXiv:2508.06471}}
+
+    \item \textbf{CritiqueLLM: Scaling LLM-as-Critic for Effective and Explainable Evaluation of Large Language Model Generation} \textcolor{accent}{[ACL 2024]} \\
+    {\small Pei Ke*, Bosi Wen*, \underline{Zhuoer Feng}*, Xiao Liu*, Xuanyu Lei, Jiale Cheng, Shengyuan Wang, Aohan Zeng, Yuxiao Dong, Hongning Wang, Jie Tang, Minlie Huang.} \\
+    {\small \href{https://aclanthology.org/2024.acl-long.704/}{ACL Anthology}}
+
+    \item \textbf{AlignBench: Benchmarking Chinese Alignment of Large Language Models} \textcolor{accent}{[ACL 2024]} \\
+    {\small Xiao Liu*, Xuanyu Lei*, Shengyuan Wang, Yue Huang, \underline{Zhuoer Feng}, Bosi Wen, Jiale Cheng, Pei Ke, Yifan Xu, Weng Lam Tam, Xiaohan Zhang, Lichao Sun, Xiaotao Gu, Hongning Wang, Jing Zhang, Minlie Huang, Yuxiao Dong, Jie Tang.} \\
+    {\small \href{https://aclanthology.org/2024.acl-long.624/}{ACL Anthology}}
+
+    \item \textbf{RedHat: Towards Reducing Hallucination in Essay Critiques with Large Language Models} \textcolor{accent}{[ICLR 2024 Submission]} \\
+    {\small \underline{Zhuoer Feng}*, Cunxiang Wang*, Bosi Wen, Boqun Kou, Haohan Chi, Yu Luo, Lin Fan, Xiaotao Gu, Jie Tang, Hongning Wang, Minlie Huang.} \\
+    {\small \href{https://openreview.net/forum?id=IULlNTZZel}{OpenReview}}
+
+    % \item \textbf{Networking Chemical Flows: Efficiency-Value-Environment Functionalized Symbiosis Algorithms and Applications} \textcolor{accent}{[EST, 2023]} \\
+    % {\small Yizheng Lyu*, \underline{Zhuoer Feng}*, Tianshu Ji*, Jinping Tian, Lyujun Chen.} \\
+    % {\small \href{https://pubs.acs.org/doi/10.1021/acs.est.3c04291}{Environmental Science \& Technology}}
+
+    \item \textbf{LOT: A Story-Centric Benchmark for Evaluating Chinese Long Text Understanding and Generation} \textcolor{accent}{[TACL, 2022]} \\
+    {\small Jian Guan, \underline{Zhuoer Feng}, Yamei Chen, Ruilin He, Xiaoxi Mao, Changjie Fan, Minlie Huang.} \\
+    {\small \href{https://aclanthology.org/2022.tacl-1.25.pdf}{ACL Anthology}}
+
+    \item \textbf{OpenMEVA: A Benchmark for Evaluating Open-Ended Story Generation Metrics} \textcolor{accent}{[ACL 2021]} \\
+    {\small Jian Guan, Zhexin Zhang, \underline{Zhuoer Feng}, Zitao Liu, Wenbiao Ding, Xiaoxi Mao, Changjie Fan, Minlie Huang.} \\
+    {\small \href{https://aclanthology.org/2021.acl-long.500.pdf}{ACL Anthology}}
+
+\end{enumerate}
+
+\vspace{-0.8em}
+
+% ===== Technical Skills =====
+\section{Technical Skills}
+
+\begin{itemize}[leftmargin=1.5em, topsep=2pt, itemsep=2pt, parsep=0pt]
+    \item \textbf{LLM Training:} PyTorch/Megatron-LM/DeepSpeed/Ray; recently Llama-Factory and veRL.
+    \item \textbf{Agent \& Coding:} Claude Code based development, RL training framework development, Docker-based coding agent training/evaluation.
+    \item \textbf{RAG Systems:} LangChain-based retrieval-augmented generation system development.
+    \item \textbf{Programming:} Python, C/C++, LaTeX; familiar with Linux, Git, Docker.
+\end{itemize}
+
+\vspace{-0.8em}
+
+% ===== Awards =====
+\section{Awards \& Honors}
+
+\cventryoneline{National Scholarship, Ministry of Education of China}{2018, 2024}
+\cventryoneline{Excellent Student Social Service Cadre, Tsinghua University}{2025}
+\cventryoneline{Excellent Undergraduate, Tsinghua University}{2022}
+
+\vspace{-0.8em}
+
+% ===== Teaching =====
+\section{Teaching}
+
+\cventry{Teaching Assistant --- Artificial Intelligence}{2021 -- 2023}{Tsinghua University, Department of Computer Science and Technology}{}
+
+\vspace{-0.8em}
+
+% ===== Academic Service =====
+\section{Academic Service}
+
+\noindent\textbf{Reviewer:} ACL Rolling Review (Jan 2025, May 2025, Jan 2026), ICML 2026
+
+% \vspace{-0.4em}
+\begin{center}
+    {\small\color{lightgray} Last updated: May 2026}
+\end{center}
+
+\end{document}

@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Background -->
+  <rect width="64" height="64" rx="14" fill="#2a7a7a"/>
+
+  <!-- Hair (messy anime style) -->
+  <ellipse cx="30" cy="22" rx="20" ry="18" fill="#1a1a2e"/>
+  <!-- Hair spikes -->
+  <path d="M12 20 Q10 10 18 14 Q14 6 24 12 Q22 4 32 10 Q34 3 40 12 Q44 6 46 16 Q50 12 48 22" fill="#1a1a2e"/>
+  <!-- Side hair strands -->
+  <path d="M11 24 Q8 32 12 38" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+  <path d="M49 24 Q52 32 48 38" stroke="#1a1a2e" stroke-width="3" fill="none" stroke-linecap="round"/>
+
+  <!-- Face -->
+  <ellipse cx="30" cy="30" rx="16" ry="15" fill="#fce4c8"/>
+  <!-- Face contour (chin) -->
+  <path d="M14 30 Q14 44 30 46 Q46 44 46 30" fill="#fce4c8"/>
+
+  <!-- Eyes (big anime style) -->
+  <ellipse cx="23" cy="30" rx="4" ry="4.5" fill="#ffffff"/>
+  <ellipse cx="37" cy="30" rx="4" ry="4.5" fill="#ffffff"/>
+  <ellipse cx="24" cy="30" rx="2.5" ry="3" fill="#1a1a2e"/>
+  <ellipse cx="38" cy="30" rx="2.5" ry="3" fill="#1a1a2e"/>
+  <!-- Eye highlights -->
+  <circle cx="25" cy="28.5" r="1" fill="#ffffff"/>
+  <circle cx="39" cy="28.5" r="1" fill="#ffffff"/>
+
+  <!-- Eyebrows -->
+  <path d="M19 24 Q23 22 27 24" stroke="#1a1a2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+  <path d="M33 24 Q37 22 41 24" stroke="#1a1a2e" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+  <!-- Mouth (small smile) -->
+  <path d="M27 38 Q30 41 33 38" stroke="#c47a5a" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+
+  <!-- Blush -->
+  <ellipse cx="19" cy="36" rx="3" ry="1.8" fill="#f5a0a0" opacity="0.4"/>
+  <ellipse cx="41" cy="36" rx="3" ry="1.8" fill="#f5a0a0" opacity="0.4"/>
+
+  <!-- Front hair bangs -->
+  <path d="M14 22 Q16 18 22 20 Q20 14 28 18 Q26 12 34 16 Q36 12 40 18 Q42 14 46 22" fill="#1a1a2e"/>
+
+  <!-- Musical note (eighth note, bottom-right) -->
+  <g transform="translate(46, 42)">
+    <ellipse cx="3" cy="12" rx="4" ry="3" fill="#ffffff" transform="rotate(-20, 3, 12)"/>
+    <rect x="6" y="0" width="2" height="12" fill="#ffffff" rx="1"/>
+    <path d="M8 0 Q14 2 12 7 Q10 4 8 5" fill="#ffffff"/>
+  </g>
+</svg>

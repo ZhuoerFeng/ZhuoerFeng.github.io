@@ -173,8 +173,45 @@ p {
     color: #444;
 }
 
+p a {
+    color: #2a7a7a;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+p a:hover {
+    text-decoration: underline;
+}
+
 p:last-child {
     margin-bottom: 0;
+}
+
+/* ===== News Section ===== */
+.news-list {
+    list-style: none;
+    padding: 0;
+    margin: 8px 0 0;
+}
+
+.news-list li {
+    padding: 8px 0;
+    font-size: 0.9rem;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+    line-height: 1.5;
+}
+
+.news-list li:last-child {
+    border-bottom: none;
+}
+
+.news-date {
+    display: inline-block;
+    font-weight: 600;
+    color: #2a7a7a;
+    min-width: 90px;
+    margin-right: 8px;
 }
 
 /* ===== Education ===== */
