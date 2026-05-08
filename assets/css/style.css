@@ -99,6 +99,16 @@ body {
     color: #fff;
 }
 
+.contact-links a.cv-download {
+    background: #2a7a7a;
+    color: #fff;
+    font-weight: 600;
+}
+
+.contact-links a.cv-download:hover {
+    background: #1e5e5e;
+}
+
 /* Sidebar sections (Skills) */
 .sidebar-section {
     border-top: 1px solid #e8ecf0;
