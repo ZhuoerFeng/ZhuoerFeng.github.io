@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 36 36">
+  <!-- Pressed / dragging state: a squished, closed paw in the site's dark navy. -->
+  <g fill="#1a1a2e" stroke="#ffffff" stroke-width="1.4" stroke-linejoin="round">
+    <ellipse cx="10"   cy="14"   rx="2.6" ry="3"/>
+    <ellipse cx="16"   cy="11"   rx="2.7" ry="3.2"/>
+    <ellipse cx="21"   cy="11"   rx="2.7" ry="3.2"/>
+    <ellipse cx="27"   cy="14"   rx="2.6" ry="3"/>
+    <ellipse cx="18.5" cy="24"   rx="8.5" ry="7"/>
+  </g>
+</svg>

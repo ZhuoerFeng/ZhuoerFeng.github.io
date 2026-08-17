@@ -443,3 +443,165 @@ p:last-child {
         padding: 12px 14px;
     }
 }
+
+/* ===== Pointer Effects (click + drag) ===== */
+/* Full-viewport overlay that renders click/drag particles. It sits above the
+   page but never intercepts input, so all existing interactions keep working. */
+.pointer-fx-layer {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    pointer-events: none;
+    overflow: hidden;
+}
+
+/* Durations mirror CONFIG in assets/js/pointer-effects.js. */
+:root {
+    --pfx-particle-dur: 700ms;
+    --pfx-ripple-dur: 620ms;
+    --pfx-symbol-dur: 1150ms;
+}
+
+/* A single sparkle: starts at the pointer, drifts to (--pfx-dx, --pfx-dy),
+   shrinks and fades. Positioned by JS via inline left/top. */
+.pfx-particle {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 8px;
+    height: 8px;
+    margin: -4px 0 0 -4px; /* center on the pointer coordinate */
+    border-radius: 50%;
+    background: #2a7a7a;
+    opacity: 0.9;
+    will-change: transform, opacity;
+    animation: pfx-particle-move var(--pfx-particle-dur) cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes pfx-particle-move {
+    0% {
+        transform: translate(0, 0) scale(1);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate(var(--pfx-dx, 0), var(--pfx-dy, 0)) scale(0.2);
+        opacity: 0;
+    }
+}
+
+/* Expanding ring emitted on click. */
+.pfx-ripple {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 12px;
+    height: 12px;
+    margin: -6px 0 0 -6px;
+    border-radius: 50%;
+    border: 2px solid #2a7a7a;
+    opacity: 0.7;
+    will-change: transform, opacity;
+    animation: pfx-ripple-grow var(--pfx-ripple-dur) ease-out forwards;
+}
+
+@keyframes pfx-ripple-grow {
+    0% {
+        transform: scale(0.3);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(4.5);
+        opacity: 0;
+    }
+}
+
+/* Music symbol: drifts to (--pfx-dx, --pfx-dy), scales up then away, rotates
+   subtly and fades. The font stack falls back through several system fonts that
+   carry musical glyphs (incl. the treble clef 𝄞) before plain sans-serif. */
+.pfx-symbol {
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 20px;
+    line-height: 1;
+    font-family: 'Noto Music', 'Bravura', 'Segoe UI Symbol', 'Apple Symbols',
+        'Segoe UI Historic', 'Arial Unicode MS', sans-serif;
+    color: #2a7a7a;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.6);
+    will-change: transform, opacity;
+    animation: pfx-symbol-float var(--pfx-symbol-dur) cubic-bezier(0.22, 0.61, 0.36, 1) forwards;
+}
+
+@keyframes pfx-symbol-float {
+    0% {
+        transform: translate(-50%, -50%) scale(0.4) rotate(0deg);
+        opacity: 0;
+    }
+    18% {
+        opacity: 1;
+    }
+    100% {
+        transform:
+            translate(calc(-50% + var(--pfx-dx, 0)), calc(-50% + var(--pfx-dy, 0)))
+            scale(1.05) rotate(var(--pfx-rot, 0deg));
+        opacity: 0;
+    }
+}
+
+/* Reduced-motion: keep only a brief, gentle ripple; JS skips the sparkle burst
+   and the drag trail entirely. */
+@media (prefers-reduced-motion: reduce) {
+    .pfx-particle,
+    .pfx-symbol {
+        display: none;
+    }
+    .pfx-ripple {
+        animation-duration: 300ms;
+    }
+}
+
+/* ===== Custom Cursor (chibi cat paw) ===== */
+/* Applied only on devices with a fine, hovering pointer (mouse / trackpad / pen),
+   so touch-only devices keep their native behavior. SVG cursors are supported by
+   Chrome, Edge and Firefox; browsers that don't support them (e.g. Safari) fall
+   back to the system cursor listed after each url().
+   --------------------------------------------------------------------------
+   To customize: swap the SVGs in assets/img/cursors/, change the "36 36" size in
+   each SVG's width/height, and edit the hotspot — the two numbers after each
+   url("...") are the X Y pixel offsets of the active point within the image. */
+@media (hover: hover) and (pointer: fine) {
+    html {
+        cursor: url("../img/cursors/cat-paw.svg") 18 6, default;
+    }
+
+    /* Interactive elements get the pointing-paw variant. */
+    a,
+    button,
+    summary,
+    label[for],
+    [role="button"],
+    .contact-links a,
+    .pub-link,
+    .cv-download {
+        cursor: url("../img/cursors/cat-paw-point.svg") 18 4, pointer;
+    }
+
+    /* Preserve the text caret for editable fields. */
+    input,
+    textarea,
+    [contenteditable=""],
+    [contenteditable="true"] {
+        cursor: text;
+    }
+
+    /* While pressed / dragging (class toggled by pointer-effects.js), everything
+       shows the closed "pressed paw" for clear active-state feedback. */
+    html.pfx-pressing,
+    html.pfx-pressing a,
+    html.pfx-pressing button,
+    html.pfx-pressing * {
+        cursor: url("../img/cursors/cat-paw-press.svg") 18 6, default !important;
+    }
+}
